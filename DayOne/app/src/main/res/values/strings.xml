@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DayOne</string>
+    <string name="txt_hello_second">Second Activity</string>
+</resources>
