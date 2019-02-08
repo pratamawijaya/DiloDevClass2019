@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rv)
 
-
         val listItems = listOf(
                 "Text 1",
                 "Text 2",
