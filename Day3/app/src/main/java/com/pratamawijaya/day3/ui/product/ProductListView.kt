@@ -6,4 +6,5 @@ interface ProductListView {
     fun showLoading()
     fun hideLoading()
     fun showData(listProduct: List<Product>)
+    fun showError(errorMsg: String)
 }

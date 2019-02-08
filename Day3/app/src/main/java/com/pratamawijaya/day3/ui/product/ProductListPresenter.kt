@@ -13,9 +13,7 @@ class ProductListPresenter(
 ) {
 
     fun getProducts() {
-
         view.showLoading()
-        // 2xx, 3xx, 4xx, 5xx
 
         productRepo.getProducts().enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
@@ -23,7 +21,14 @@ class ProductListPresenter(
                 view.hideLoading()
 
                 if (response.isSuccessful) {
-                    view.showData(response.body()!!)
+                    val result = response.body()
+
+                    if (result.isNullOrEmpty()) {
+                        view.showError("Products is empty")
+                    } else {
+                        view.showData(result)
+                    }
+
                 } else {
                     Log.e("error", "response not success ${response.message()}")
                 }
@@ -36,10 +41,6 @@ class ProductListPresenter(
 
                 Log.e("error", "error ${t.message}")
             }
-
-
         })
-
     }
-
 }
