@@ -17,5 +17,9 @@ data class ItemModel(
     val displayName: String? = null,
 
     @field:SerializedName("update_priority")
-    val updatePriority: String? = null
-)
+    val updatePriority: String? = null,
+
+    val score: Float? = 0f
+) {
+    val imgUrl = "https://static.poporing.life/items/$name.png"
+}
