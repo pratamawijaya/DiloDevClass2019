@@ -1,0 +1,20 @@
+## Info Pertandingan Basketball
+https://www.balldontlie.io/#introduction
+
+## Berita
+https://newsapi.org/
+
+## Weather
+https://openweathermap.org/api
+
+## Star Wars
+https://swapi.co/
+
+## Jadwal Sholat
+http://muslimsalat.com/api/#auto
+
+## Dota 2
+https://docs.opendota.com/
+
+## Ragnarok
+https://poporing.life/api-docs/

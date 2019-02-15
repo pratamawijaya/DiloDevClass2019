@@ -10,7 +10,7 @@ interface MyAppServices {
 
     // https://api.myjson.com/bins/1585qw
 
-    @GET("bins/1585qw")
+    @GET("bins/kvcko")
     fun getProducts(): Call<List<Product>>
 
     companion object Factory {

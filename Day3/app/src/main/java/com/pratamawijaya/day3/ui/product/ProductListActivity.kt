@@ -2,6 +2,7 @@ package com.pratamawijaya.day3.ui.product
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View.GONE
@@ -32,7 +33,10 @@ class ProductListActivity : AppCompatActivity(), ProductListView, ProductListene
         rvProductList.apply {
             adapter = productAdapter
             layoutManager = LinearLayoutManager(this@ProductListActivity)
+            addItemDecoration(DividerItemDecoration(this@ProductListActivity, LinearLayoutManager.VERTICAL))
         }
+
+        rvProductList.setonscr
 
         presenter = ProductListPresenter(this, productRepo)
         presenter.getProducts()
@@ -57,11 +61,10 @@ class ProductListActivity : AppCompatActivity(), ProductListView, ProductListene
 
     override fun onProductClick(product: Product) {
         toast("Show ${product.nama}")
+        // pindah activity
     }
 
     override fun showData(listProduct: List<Product>) {
-        // todo : show data to recyclerview
-
         Log.d("tag", "data size ${listProduct.size}")
 
         listProduct.map {
