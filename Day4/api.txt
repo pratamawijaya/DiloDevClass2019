@@ -18,3 +18,12 @@ https://docs.opendota.com/
 
 ## Ragnarok
 https://poporing.life/api-docs/
+
+
+## Task
+
+- buat aplikasi android yang mengimplementasikan http request dan menampilkan data dengan recyclerview
+- aplikasi terdiri dari 2 halaman
+    * list 
+    * detail
+- upload project aplikasi ke akun github masing-masing
