@@ -1,7 +1,11 @@
 package com.pratamawijaya.day4.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import java.math.BigDecimal
 
+@Parcelize
 data class ItemModel(
 
     @field:SerializedName("item_type")
@@ -19,7 +23,8 @@ data class ItemModel(
     @field:SerializedName("update_priority")
     val updatePriority: String? = null,
 
-    val score: Float? = 0f
-) {
-    val imgUrl = "https://static.poporing.life/items/$name.png"
-}
+    val score: Float? = 0f,
+
+    val price: BigDecimal? = BigDecimal.ZERO,
+    val volume: Float? = 0f
+) : Parcelable

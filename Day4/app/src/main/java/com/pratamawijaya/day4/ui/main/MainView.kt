@@ -1,4 +1,4 @@
-package com.pratamawijaya.day4.ui
+package com.pratamawijaya.day4.ui.main
 
 import com.pratamawijaya.day4.data.model.ItemModel
 

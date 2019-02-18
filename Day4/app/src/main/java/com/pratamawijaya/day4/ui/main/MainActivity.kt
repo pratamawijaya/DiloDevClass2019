@@ -1,5 +1,6 @@
-package com.pratamawijaya.day4.ui
+package com.pratamawijaya.day4.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
@@ -8,14 +9,17 @@ import com.github.ajalt.timberkt.d
 import com.github.ajalt.timberkt.e
 import com.pratamawijaya.day4.R
 import com.pratamawijaya.day4.data.model.ItemModel
-import com.pratamawijaya.day4.ui.rvitem.ItemRv
-import com.pratamawijaya.day4.ui.rvitem.ItemRvTrending
-import com.pratamawijaya.day4.ui.rvitem.ItemTitle
+import com.pratamawijaya.day4.ui.detail.DetailItemActivity
+import com.pratamawijaya.day4.ui.main.rvitem.ItemListener
+import com.pratamawijaya.day4.ui.main.rvitem.ItemRv
+import com.pratamawijaya.day4.ui.main.rvitem.ItemRvTrending
+import com.pratamawijaya.day4.ui.main.rvitem.ItemTitle
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : AppCompatActivity(), MainView,
+    ItemListener {
 
     lateinit var presenter: MainPresenter
 
@@ -36,11 +40,17 @@ class MainActivity : AppCompatActivity(), MainView {
 
     }
 
+    override fun onItemClick(item: ItemModel) {
+        d { "item click ${item.name}" }
+        val intent = Intent(this, DetailItemActivity::class.java)
+        intent.putExtra("item", item)
+        startActivity(intent)
+    }
+
     override fun displayItemTrending(item_list: List<ItemModel>) {
         mainAdapter.add(ItemTitle("Trending Item"))
         item_list.map {
-            d { "trending item ${it.name}" }
-            mainAdapter.add(ItemRvTrending(it))
+            mainAdapter.add(ItemRvTrending(it, this))
         }
 
         // ambil semua item
@@ -54,8 +64,7 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun displayAllItems(item_list: List<ItemModel>) {
         mainAdapter.add(ItemTitle("All Item"))
         item_list.map {
-            d { "all items ${it.name}" }
-            mainAdapter.add(ItemRv(it))
+            mainAdapter.add(ItemRv(it, this))
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.pratamawijaya.day4.ui
+package com.pratamawijaya.day4.ui.main
 
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority

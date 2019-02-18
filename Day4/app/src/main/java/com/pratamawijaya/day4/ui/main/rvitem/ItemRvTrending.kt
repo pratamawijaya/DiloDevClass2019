@@ -1,4 +1,4 @@
-package com.pratamawijaya.day4.ui.rvitem
+package com.pratamawijaya.day4.ui.main.rvitem
 
 import com.github.ajalt.timberkt.d
 import com.pratamawijaya.day4.R
@@ -8,7 +8,9 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_rv_trending.view.*
 
-class ItemRvTrending(private val itemModel: ItemModel) : Item() {
+class ItemRvTrending(private val itemModel: ItemModel,
+                     val listener: ItemListener
+) : Item() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
         val tvName = viewHolder.itemView.itemName
         val tvScore = viewHolder.itemView.itemScore
@@ -21,6 +23,8 @@ class ItemRvTrending(private val itemModel: ItemModel) : Item() {
 
         d { "load url $url " }
         imgItem.loadUrl(url)
+
+        viewHolder.itemView.setOnClickListener { listener.onItemClick(itemModel) }
     }
 
     override fun getLayout(): Int {

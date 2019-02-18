@@ -1,4 +1,4 @@
-package com.pratamawijaya.day4.ui.rvitem
+package com.pratamawijaya.day4.ui.main.rvitem
 
 import com.pratamawijaya.day4.R
 import com.xwray.groupie.kotlinandroidextensions.Item
